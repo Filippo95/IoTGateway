@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Mac:</strong>
+  <%= @misuration.mac %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @misuration.value %>
+</p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @misuration.unit %>
+</p>
+
+<%= link_to 'Edit', edit_misuration_path(@misuration) %> |
+<%= link_to 'Back', misurations_path %>

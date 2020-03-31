@@ -1,0 +1,27 @@
+<%= form_with(model: sensors_group, local: true) do |form| %>
+  <% if sensors_group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sensors_group.errors.count, "error") %> prohibited this sensors_group from being saved:</h2>
+
+      <ul>
+        <% sensors_group.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nome %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <div class="field">
+    <%= form.label :id_user_group %>
+    <%= form.number_field :id_user_group %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,63 @@
+<%= form_with(model: sensor, local: true) do |form| %>
+  <% if sensor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sensor.errors.count, "error") %> prohibited this sensor from being saved:</h2>
+
+      <ul>
+        <% sensor.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :mac %>
+    <%= form.text_field :mac %>
+  </div>
+
+  <div class="field">
+    <%= form.label :url %>
+    <%= form.text_field :url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tipo %>
+    <%= form.text_field :tipo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :latitudine %>
+    <%= form.text_field :latitudine %>
+  </div>
+
+  <div class="field">
+    <%= form.label :longitudine %>
+    <%= form.text_field :longitudine %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unit_misura %>
+    <%= form.text_field :unit_misura %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :public %>
+    <%= form.check_box :public %>
+  </div>
+
+  <div class="field">
+    <%= form.label :downtime_to_alarm %>
+    <%= form.time_select :downtime_to_alarm %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_firmware_update %>
+    <%= form.date_select :last_firmware_update %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Misurations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mac</th>
+      <th>Value</th>
+      <th>Unit</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @misurations.each do |misuration| %>
+      <tr>
+        <td><%= misuration.mac %></td>
+        <td><%= misuration.value %></td>
+        <td><%= misuration.unit %></td>
+        <td><%= link_to 'Show', misuration %></td>
+        <td><%= link_to 'Edit', edit_misuration_path(misuration) %></td>
+        <td><%= link_to 'Destroy', misuration, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Misuration', new_misuration_path %>

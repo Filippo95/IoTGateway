@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Misuration Subscriptions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mac</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @misuration_subscriptions.each do |misuration_subscription| %>
+      <tr>
+        <td><%= misuration_subscription.mac %></td>
+        <td><%= misuration_subscription.user_id %></td>
+        <td><%= link_to 'Show', misuration_subscription %></td>
+        <td><%= link_to 'Edit', edit_misuration_subscription_path(misuration_subscription) %></td>
+        <td><%= link_to 'Destroy', misuration_subscription, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Misuration Subscription', new_misuration_subscription_path %>
