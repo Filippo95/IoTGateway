@@ -2,7 +2,7 @@
 
 <h1>Sensori</h1>
 
-<table class="pure-table pure-table-horizonta">
+<table class="pure-table pure-table-horizontal">
   <thead>
     <tr>
       <th>Mac</th>
@@ -10,8 +10,8 @@
       <th>Tipo</th>
       <th>Latitudine</th>
       <th>Longitudine</th>
-      <th>Unit misura</th>
-      <th>Public</th>
+      <th>Unità misura</th>
+      <th>Publico</th>
       <th>Downtime to alarm</th>
       <th>Last firmware update</th>
       <th colspan="3"></th>
@@ -30,9 +30,9 @@
         <td><%= sensor.public %></td>
         <td><%= sensor.downtime_to_alarm %></td>
         <td><%= sensor.last_firmware_update %></td>
-        <td><%= link_to 'Show', sensor , class: "button-success pure-button" %></td>
-        <td><%= link_to 'Edit', edit_sensor_path(sensor), class: "button-warning pure-button" %></td>
-        <td><%= link_to 'Destroy', sensor, method: :delete, data: { confirm: 'Are you sure?' } , class: "button-error pure-button"%></td>
+        <td><%= link_to 'Visualizza', sensor , class: "button-success pure-button" %></td>
+        <td><%= link_to 'Modifica', edit_sensor_path(sensor), class: "button-warning pure-button" %></td>
+        <td><%= link_to 'Elimina', sensor, method: :delete, data: { confirm: 'Sei sicuro?' } , class: "button-error pure-button"%></td>
       </tr>
     <% end %>
   </tbody>
@@ -40,7 +40,7 @@
 
 <br>
 
-<%= link_to 'New Sensor', new_sensor_path %>
+<%= link_to 'Aggiungi Sensore', new_sensor_path ,class:"pure-button pure-button-primary"%>
 <style scoped>
 
         .button-success,
