@@ -1,4 +1,4 @@
-<%= form_with(model: sensor, local: true) do |form| %>
+<%= form_with(model: sensor, local: true, class: "pure-form pure-form-aligned") do |form| %>
   <% if sensor.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(sensor.errors.count, "error") %> prohibited this sensor from being saved:</h2>
@@ -14,7 +14,6 @@
     <div class="pure-control-group">
       <%= form.label :mac %>
       <%= form.text_field :mac %>
-      <span class="pure-form-message-inline">This is a required field.</span>
     </div>
 
     <div class="pure-control-group">
