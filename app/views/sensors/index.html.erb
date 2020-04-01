@@ -2,7 +2,7 @@
 
 <h1>Sensori</h1>
 
-<table>
+<table class="pure-table pure-table-horizonta">
   <thead>
     <tr>
       <th>Mac</th>
@@ -30,9 +30,9 @@
         <td><%= sensor.public %></td>
         <td><%= sensor.downtime_to_alarm %></td>
         <td><%= sensor.last_firmware_update %></td>
-        <td><%= link_to 'Show', sensor %></td>
-        <td><%= link_to 'Edit', edit_sensor_path(sensor) %></td>
-        <td><%= link_to 'Destroy', sensor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', sensor , class: "button-success" %></td>
+        <td><%= link_to 'Edit', edit_sensor_path(sensor), class: "button-warning" %></td>
+        <td><%= link_to 'Destroy', sensor, method: :delete, data: { confirm: 'Are you sure?' } , class: "button-error"%></td>
       </tr>
     <% end %>
   </tbody>
