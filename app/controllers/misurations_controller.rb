@@ -1,4 +1,5 @@
 class MisurationsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_misuration, only: [:show, :edit, :update, :destroy]
 
   # GET /misurations
@@ -69,8 +70,9 @@ class MisurationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def misuration_params
-      @sensor_id=Sensors.where(mac: self.mac).first.id
       params.require(:misuration).permit(:mac, :value, :unit,@sensor_id)
+
+      @sensor_id=Sensor.where("mac = ?", params[:mac]).sensor_id
 
     end
 end
