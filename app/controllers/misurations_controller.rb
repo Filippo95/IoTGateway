@@ -69,6 +69,8 @@ class MisurationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def misuration_params
-      params.require(:misuration).permit(:mac, :value, :unit)
+      @sensor_id=Sensors.where(mac: self.mac).first.id
+      params.require(:misuration).permit(:mac, :value, :unit,@sensor_id)
+
     end
 end
