@@ -5,7 +5,7 @@ class Misuration < ApplicationRecord
 
 
 def mac_presence
-  return true if Sensors.where(mac: self.mac).exists?
+  return false if !Sensors.where(mac: self.mac).exists?
 end
 
 	belongs_to :sensor
