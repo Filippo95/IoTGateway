@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
- 
- 
   resources :sensors
   resources :sensors_group_subscriptions
   resources :sensors_groups
