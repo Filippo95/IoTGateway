@@ -39,3 +39,4 @@ yarn-debug.log*
 /config/database.yml
 /Gemfile
 /Gemfile.lock
+/file.txt
