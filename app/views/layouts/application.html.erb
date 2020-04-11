@@ -1,55 +1,214 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>RoRIoTGateway</title>
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Showcases a horizontal menu that hides at
+     small window widths, and which scrolls when revealed.">   
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+    
+    <title>IoT Gateway</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  
+    
+</head>
+<body>
 
-  <body>
+<style>
+.custom-menu-wrapper {
+    background-color: #3D4F5D;
+    margin-bottom: 2.5em;
+    white-space: nowrap;
+    position: relative;
+}
+
+.custom-menu {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+    -webkit-font-smoothing: antialiased;
+}
+
+.custom-menu .pure-menu-link,
+.custom-menu .pure-menu-heading {
+    color: white;
+}
+
+.custom-menu .pure-menu-link:hover,
+.custom-menu .pure-menu-heading:hover {
+    background-color: transparent;
+}
+
+.custom-menu-top {
+    position: relative;
+    padding-top: .5em;
+    padding-bottom: .5em;
+}
+
+.custom-menu-brand {
+    display: block;
+    text-align: center;
+    position: relative;
+}
+
+.custom-menu-toggle {
+    width: 44px;
+    height: 44px;
+    display: block;
+    position: absolute;
+    top: 3px;
+    right: 0;
+    display: none;
+}
+
+.custom-menu-toggle .bar {
+    background-color: white;
+    display: block;
+    width: 20px;
+    height: 2px;
+    border-radius: 100px;
+    position: absolute;
+    top: 22px;
+    right: 12px;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.custom-menu-toggle .bar:first-child {
+    -webkit-transform: translateY(-6px);
+    -moz-transform: translateY(-6px);
+    -ms-transform: translateY(-6px);
+    transform: translateY(-6px);
+}
+
+.custom-menu-toggle.x .bar {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.custom-menu-toggle.x .bar:first-child {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.custom-menu-screen {
+    background-color: rgba(0, 0, 0, 0.5);
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    transition: all 0.5s;
+    height: 3em;
+    width: 70em;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+}
+
+.custom-menu-tucked .custom-menu-screen {
+    -webkit-transform: translateY(-44px);
+    -moz-transform: translateY(-44px);
+    -ms-transform: translateY(-44px);
+    transform: translateY(-44px);
+}
+
+@media (max-width: 62em) {
+
+    .custom-menu {
+        display: block;
+    }
+
+    .custom-menu-toggle {
+        display: block;
+        display: none\9;
+    }
+
+    .custom-menu-bottom {
+        position: absolute;
+        width: 100%;
+        border-top: 1px solid #eee;
+        background-color: #808080\9;
+        z-index: 100;
+    }
+
+    .custom-menu-bottom .pure-menu-link {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        transform: translateX(0);
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -ms-transition: all 0.5s;
+        transition: all 0.5s;
+    }
+
+    .custom-menu-bottom.custom-menu-tucked .pure-menu-link {
+        -webkit-transform: translateX(-140px);
+        -moz-transform: translateX(-140px);
+        -ms-transform: translateX(-140px);
+        transform: translateX(-140px);
+        opacity: 0;
+        opacity: 1\9;
+    }
+
+    .pure-menu-horizontal.custom-menu-tucked {
+        z-index: -1;
+        top: 45px;
+        position: absolute;
+        overflow: hidden;
+    }
+
+}
+</style>
+<div class="custom-menu-wrapper">
+   
     <% if user_signed_in? %>
-      <div class="pure-menu pure-menu-horizontal">
+    <div class="pure-menu pure-menu-horizontal pure-menu-scrollable custom-menu custom-menu-bottom custom-menu-tucked" id="tuckedMenu">
+        <div class="custom-menu-screen"></div>
         <ul class="pure-menu-list">
-            <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Home</a></li>
-            <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
-                <a href="#" id="menuLink1" class="pure-menu-link">Sensori</a>
-                <ul class="pure-menu-children">
-                    <li class="pure-menu-item"><a href="#" class="pure-menu-link" style="bac">Email</a></li>
-                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Twitter</a></li>
-                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Tumblr Blog</a></li>
-                    <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-                </ul>
-            </li>
-            <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
-                <a href="#" id="menuLink1" class="pure-menu-link">Misurazioni</a>
-                <ul class="pure-menu-children">
-                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Email</a></li>
-                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Twitter</a></li>
-                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Tumblr Blog</a></li>
-                    <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-                </ul>
-            </li>
+            <li class="pure-menu-item"><%= link_to "Home",root_path, class: "pure-menu-link"%></li>
+            <li class="pure-menu-item"><%= link_to "Sensori", sensors_path, class: "pure-menu-link"%></li>
+            <li class="pure-menu-item"><%= link_to "Misurazioni", misurations_path, class: "pure-menu-link"%></li>
+            <li class="pure-menu-item"><%= link_to "Gruppi", sensors_groups_path, class: "pure-menu-link"%></li>
+            <li class="pure-menu-item"><%= link_to "Log out", destroy_user_session_path, method: :delete ,class: "pure-menu-link"%></li>
         </ul>
-        <ul class="pure-menu-list" style="float: right">
-            <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover" style="float: right">
-                <a href="#" id="menuLink1" class="pure-menu-link"><%= current_user.id %></a>
-                <ul class="pure-menu-children">
-                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Email</a></li>
-                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Twitter</a></li>
-                    <li class="pure-menu-item"><%= link_to "Log out", destroy_user_session_path, method: :delete ,class: "pure-menu-link"%></li>
-                </ul>
-            </li>
-        </ul>
-      </div>
-    <%end%>
-       <% if notice %>
+         
+    </div>
+    <%end %>
+
+</div>
+
+<style>
+.main {
+    color: black;
+    padding-left: 3%;
+}
+</style>
+
+<div class="main">
+<% if notice %>
   <p class="alert alert-success"><%= notice %></p>
 <% end %>
 <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
+        
     <%= yield %>
-  </body>
+</div>
+
+
+</body>
 </html>
+
+
