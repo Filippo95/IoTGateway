@@ -1,19 +1,34 @@
 <p id="notice"><%= notice %></p>
+<h1>Sensore: </h1>
+	<p>
+	  	<strong>MAC Address:</strong>
+	 	 <%= @misuration.mac %>
+	</p>
 
-<p>
-  <strong>Mac:</strong>
-  <%= @misuration.mac %>
-</p>
+	<p>
+	  	<strong>Url:</strong>
+		<%= @misuration.sensor.url %><br>
+	</p>
 
-<p>
-  <strong>Value:</strong>
-  <%= @misuration.value %>
-</p>
+	<p>
+		<strong>Tipo Sensore: </strong>
+	  	<%= @misuration.sensor.tipo %><br>
+	</p>
+<h1>Registrazione: </h1>
+	<p>
+	  <strong>Valore registrato:</strong>
+	  <%= @misuration.value %>
+	</p>
 
-<p>
-  <strong>Unit:</strong>
-  <%= @misuration.unit %>
-</p>
+	<p>
+	  <strong>Unità di misura:</strong>
+	  <%= @misuration.unit %>
+	</p>
 
-<%= link_to 'Edit', edit_misuration_path(@misuration) %> |
-<%= link_to 'Back', misurations_path %>
+	<p>
+	  <strong>Data registrazione:</strong>
+	  <%= @misuration.created_at %>
+	</p>
+
+<%= link_to 'Modifica', edit_misuration_path(@misuration), class: "pure-button" %>  
+<%= link_to 'Indietro', misurations_path, class: "pure-button" %>

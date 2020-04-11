@@ -1,4 +1,4 @@
-<%= form_with(model: misuration, local: true) do |form| %>
+<%= form_with(model: misuration, local: true, class: "pure-form pure-form-aligned") do |form| %>
   <% if misuration.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(misuration.errors.count, "error") %> prohibited this misuration from being saved:</h2>
@@ -10,23 +10,23 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+<fieldset>
+  <div class="pure-control-group">
     <%= form.label :mac %>
     <%= form.text_field :mac %>
   </div>
 
-  <div class="field">
+  <div class="pure-control-group">
     <%= form.label :value %>
     <%= form.text_field :value %>
   </div>
 
-  <div class="field">
+  <div class="pure-control-group">
     <%= form.label :unit %>
     <%= form.text_field :unit %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :class => 'pure-button pure-button-primary' %>
   </div>
 <% end %>

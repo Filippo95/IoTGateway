@@ -5,12 +5,13 @@ class MisurationsController < ApplicationController
   # GET /misurations
   # GET /misurations.json
   def index
-    @misurations = Misuration.all
+   @misurations = Misuration.all
   end
 
   # GET /misurations/1
   # GET /misurations/1.json
   def show
+
   end
 
   # GET /misurations/new
@@ -26,17 +27,30 @@ class MisurationsController < ApplicationController
   # POST /misurations.json
   def create
     @misuration = Misuration.new(misuration_params)
+    
+    
+      #controllo se il mac, corrisponde al mac di un sensore, altrimenti errore
+      if Sensor.exists?(:mac => @misuration.mac)
+        respond_to do |format|
+            @misuration.sensor_id=Sensor.where(mac => @misuration.mac).first.id
 
-    respond_to do |format|
-      if @misuration.save
-        format.html { redirect_to @misuration, notice: 'Misuration was successfully created.' }
-        format.json { render :show, status: :created, location: @misuration }
+          if @misuration.save
+            format.html { redirect_to @misuration, notice: 'La misurazione è stata inserita con successo!' }
+            format.json { render :show, status: :created, location: @misuration }
+          else
+            format.html { render :new }
+            format.json { render json: @misuration.errors, status: :unprocessable_entity }
+          end
+        end
       else
-        format.html { render :new }
-        format.json { render json: @misuration.errors, status: :unprocessable_entity }
+        respond_to do |format|
+          format.html { redirect_to @misuration, alert: 'La misurazione non può essere aggiunta in quanto il MAC specificato non esiste tra i sensori registrati' }
+          format.json { render json: @misuration.errors, status: :unprocessable_entity }
+        end
       end
-    end
   end
+  
+
 
   # PATCH/PUT /misurations/1
   # PATCH/PUT /misurations/1.json
@@ -70,9 +84,10 @@ class MisurationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def misuration_params
-      params.require(:misuration).permit(:mac, :value, :unit,@sensor_id)
 
-      @sensor_id=Sensor.where("mac = ?", params[:mac]).sensor_id
+      params.require(:misuration).permit(:mac, :value, :unit,:sensor_id)
+
+      
 
     end
 end
