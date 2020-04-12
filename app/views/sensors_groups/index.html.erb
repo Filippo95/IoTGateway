@@ -15,9 +15,9 @@
       <tr>
         <td><%= sensors_group.nome %></td>
         <td><%= sensors_group.id_user_group %></td>
-        <td><%= link_to 'Show', sensors_group %></td>
-        <td><%= link_to 'Edit', edit_sensors_group_path(sensors_group) %></td>
-        <td><%= link_to 'Destroy', sensors_group, method: :delete, data: { confirm: 'Are you sure?' }, class: "button-error pure-button"%> </td>
+        <td><%= link_to 'Show', sensors_group, class: "pure-button pure-button-active"%></td>
+        <td><%= link_to 'Edit', edit_sensors_group_path(sensors_group), class: "pure-button pure-button-active" %></td>
+        <td><%= link_to 'Destroy', sensors_group, method: :delete, data: { confirm: 'Are you sure?' }, class: "pure-button pure-button-active"%> </td>
       </tr>
     <% end %>
   </tbody>
@@ -51,6 +51,14 @@
 
         .button-secondary {
             background: rgb(66, 184, 221); /* this is a light blue */
+        }
+
+        td{ text-align: center; }
+
+        .main{
+          width: 500px;
+          height: 500px;
+          margin: 0 auto;
         }
 
     </style>
