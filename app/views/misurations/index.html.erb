@@ -1,13 +1,14 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Misurazioni fatte da Michele</h1>
+<h1>Misurazioni </h1>
 
-<table>
+<table class="pure-table pure-table-horizontal">
   <thead>
     <tr>
-      <th>Mac</th>
-      <th>Value</th>
-      <th>Unit</th>
+      <th>MAC</th>
+      <th>Valore</th>
+      <th>Unità di misura</th>
+      <th>Data</th>
+      <th>ora</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,9 +19,11 @@
         <td><%= misuration.mac %></td>
         <td><%= misuration.value %></td>
         <td><%= misuration.unit %></td>
-        <td><%= link_to 'Show', misuration %></td>
-        <td><%= link_to 'Edit', edit_misuration_path(misuration) %></td>
-        <td><%= link_to 'Destroy', misuration, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= misuration.created_at.strftime("%d-%m-%Y") %></td>
+        <td><%= misuration.created_at.strftime("%T")%></td>
+        <td><%= link_to 'Visualizza', misuration, class: "button-success pure-button" %></td>
+        <td><%= link_to 'Modifica', edit_misuration_path(misuration), class: "button-warning pure-button" %></td>
+        <td><%= link_to 'Elimina', misuration, method: :delete, data: { confirm: 'Sei sicuro?' } , class: "button-error pure-button"%></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +31,32 @@
 
 <br>
 
-<%= link_to 'New Misuration', new_misuration_path %>
+<%= link_to 'Aggiungi Misurazione', new_misuration_path ,class:"pure-button pure-button-primary"%>
+<style scoped>
+
+        .button-success,
+        .button-error,
+        .button-warning,
+        .button-secondary {
+            color: white;
+            border-radius: 4px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        }
+
+        .button-success {
+            background: rgb(28, 184, 65); /* this is a green */
+        }
+
+        .button-error {
+            background: rgb(202, 60, 60); /* this is a maroon */
+        }
+
+        .button-warning {
+            background: rgb(223, 117, 20); /* this is an orange */
+        }
+
+        .button-secondary {
+            background: rgb(66, 184, 221); /* this is a light blue */
+        }
+
+    </style>
