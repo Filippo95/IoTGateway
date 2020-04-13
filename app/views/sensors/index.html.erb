@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Sensori</h1>
+<h1 style="text-align: center;">Sensori</h1>
 
 <table class="pure-table pure-table-horizontal">
   <thead>
@@ -41,8 +41,9 @@
 </table>
 
 <br>
-
-<%= link_to 'Aggiungi Sensore', new_sensor_path ,class:"pure-button pure-button-primary"%>
+<div id="buttoncontainer">
+  <%= link_to 'Aggiungi Sensore', new_sensor_path ,class:"pure-button pure-button-primary"%>
+</div>
 <style scoped>
 
         .button-success,
@@ -69,5 +70,8 @@
         .button-secondary {
             background: rgb(66, 184, 221); /* this is a light blue */
         }
+        #buttoncontainer {
+          text-align: center;
+        }
 
-</style>
+    </style>
