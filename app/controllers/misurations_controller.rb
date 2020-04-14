@@ -1,6 +1,7 @@
 
 class MisurationsController < ApplicationController
   before_action :authenticate_user!
+
   before_action :set_misuration, only: [:show, :edit, :update, :destroy]
 
   # GET /misurations
@@ -38,8 +39,6 @@ class MisurationsController < ApplicationController
       end
     end    
   end
-  
-
 
   # PATCH/PUT /misurations/1
   # PATCH/PUT /misurations/1.json
@@ -65,6 +64,10 @@ class MisurationsController < ApplicationController
     end
   end
 
+  
+
+     
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_misuration
@@ -75,8 +78,6 @@ class MisurationsController < ApplicationController
     def misuration_params
 
       params.require(:misuration).permit(:mac, :value, :unit)
-
-      
-
     end
 end
+
