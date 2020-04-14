@@ -7,7 +7,7 @@ one:
   latitudine: MyString
   longitudine: MyString
   unit_misura: MyString
-  owner: 1
+  user_id: 1
   public: false
   downtime_to_alarm: 2020-03-31 15:46:34
   last_firmware_update: 2020-03-31
@@ -19,7 +19,7 @@ two:
   latitudine: MyString
   longitudine: MyString
   unit_misura: MyString
-  owner: 1
+  user_id: 1
   public: false
   downtime_to_alarm: 2020-03-31 15:46:34
   last_firmware_update: 2020-03-31

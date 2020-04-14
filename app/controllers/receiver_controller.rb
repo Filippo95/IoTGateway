@@ -1,19 +1,20 @@
 class ReceiverController < ApplicationController
+
   skip_before_action :verify_authenticity_token
   def recevie
   	@misuration = Misuration.new(misuration_params)
     respond_to do |format|
       if @misuration.save
-        format.json { render :json => "saved" }
+        format.json { render :json => "saved" ,status: :success}
       else
-        format.json { render :json => "Error" }
+        format.json { render :json => "Error" ,status: :error}
       end
     end  
   end
 
   def state
 	  respond_to do |format|
-	    format.json  { render :json => "ok" } # don't do msg.to_json
+	    format.json  { render :json => "ok",status: :success } # don't do msg.to_json
 	  end
 	end
 
