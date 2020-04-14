@@ -41,9 +41,10 @@
 </table>
 
 <br>
-<div id="buttoncontainer">
-  <%= link_to 'Aggiungi Sensore', new_sensor_path ,class:"pure-button pure-button-primary"%>
-</div>
+<div id="button-container">
+
+  <%= link_to 'Aggiungi Sensore', new_sensor_path, class:"btn pure-button pure-button-primary"%>
+</div> 
 <style scoped>
 
         .button-success,
@@ -70,8 +71,15 @@
         .button-secondary {
             background: rgb(66, 184, 221); /* this is a light blue */
         }
-        #buttoncontainer {
-          text-align: center;
+        .add-cont{
+          width: 500px;
+          margin: 0 auto;
+          
+        }
+        #button-container
+        {
+          
+          text-align: center;       
         }
 
     </style>
