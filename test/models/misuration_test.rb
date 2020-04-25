@@ -1,8 +1,21 @@
 require 'test_helper'
 
 class MisurationTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+	#when a misuration is send the http request send mac address but not the sensor id 
+	test "#from_mac_get_id_sensor" do
+		m = misurations(:mac_valid)
+		m.save!
+		assert_equal m.sensor_id,9
+	end
+
+	test "#test if mac is not provided" do
+		m = misurations(:no_mac)
+		assert_equal m.valid?, false
+	end
+
+	test "#test if the sensor is not present" do
+		m = misurations(:sensor_not_present)
+		assert_equal m.valid?, false
+	end
   
 end

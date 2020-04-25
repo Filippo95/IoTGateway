@@ -1,9 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  sensor_id: MyString
-  user_id: 1
+  sensor_id: 4
+  user_id: 2
 
 two:
-  sensor_id: MyString
-  user_id: 1
+  sensor_id: 5
+  user_id: 2

@@ -1,11 +1,16 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  mac: MyString
+no_mac:
   value: 1.5
-  unit: MyString
+  unit: cm
 
-two:
-  mac: MyString
+mac_valid:
+  mac: 01:23:45:67:89:AE
   value: 1.5
-  unit: MyString
+  unit: cm
+
+sensor_not_present:
+  mac: 01:23:45:67:89:AC
+  value: 1.5
+  unit: cm
+

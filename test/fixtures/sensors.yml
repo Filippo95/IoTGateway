@@ -1,25 +1,63 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  mac: MyString
-  url: MyString
-  tipo: MyString
-  latitudine: MyString
-  longitudine: MyString
-  unit_misura: MyString
+no_mac:
+  id: 1
+  url: no_mac_url
+  tipo: no_mac_tipo
+  latitudine: no_mac_latitudine
+  longitudine: no_mac_longitudine
+  unit_misura: no_mac_unitmisura
   user_id: 1
-  public: false
+  public: true
   downtime_to_alarm: 2020-03-31 15:46:34
   last_firmware_update: 2020-03-31
 
-two:
-  mac: MyString
-  url: MyString
-  tipo: MyString
-  latitudine: MyString
-  longitudine: MyString
-  unit_misura: MyString
+no_public_value:
+  id: 9
+  mac: 01:23:45:67:89:AE
+  url: no_public_value_url
+  tipo: no_public_value_tipo
+  latitudine: no_public_value_latitudine
+  longitudine: no_public_value_longitudine
+  unit_misura: no_public_value_unitmisura
   user_id: 1
-  public: false
+  downtime_to_alarm: 2020-03-31 15:46:34
+  last_firmware_update: 2020-03-31
+
+no_owner:
+  id: 3
+  mac: 01:23:45:67:89:AB
+  url: no_owner_url
+  tipo: nno_owner_tipo
+  latitudine: no_owner_latitudine
+  longitudine: no_owner_longitudine
+  unit_misura: no_owner_unitmisura
+  public: true
+  downtime_to_alarm: 2020-03-31 15:46:34
+  last_firmware_update: 2020-03-31
+
+complete1:
+  id: 4
+  mac: 01:23:45:67:89:AB
+  url: complete1_url
+  tipo: complete1_tipo
+  latitudine: complete1_latitudine
+  longitudine: complete1_longitudine
+  unit_misura: complete1_unitmisura
+  user_id: 1
+  public: true
+  downtime_to_alarm: 2020-03-31 15:46:34
+  last_firmware_update: 2020-03-31
+
+complete2:
+  id: 5
+  mac: 01:23:45:67:89:AB
+  url: complete2_url
+  tipo: complete2_tipo
+  latitudine: complete2_latitudine
+  longitudine: complete2_longitudine
+  unit_misura: complete2_unitmisura
+  user_id: 1
+  public: true
   downtime_to_alarm: 2020-03-31 15:46:34
   last_firmware_update: 2020-03-31

@@ -3,11 +3,14 @@ class ReceiverController < ApplicationController
   skip_before_action :verify_authenticity_token
   def recevie
   	@misuration = Misuration.new(misuration_params)
+
     respond_to do |format|
       if @misuration.save
-        format.json { render :json => "saved" ,status: :success}
+        msg = { :status => "ok", :message => "Success!"}
+        format.json  { render :json => msg }
       else
-        format.json { render :json => "Error" ,status: :error}
+        msg = { :status => "Error", :message => "Errore!" }
+    format.json  { render :json => msg }
       end
     end  
   end
@@ -27,7 +30,6 @@ private
 
       params.require(:misuration).permit(:mac, :value, :unit)
     end
-
 end
 
 
