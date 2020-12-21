@@ -5,9 +5,8 @@ class SensorsController < ApplicationController
   # GET /sensors
   # GET /sensors.json
   def index
-    @sensors = Sensor.getUserSensors(User.id)
-  end
-
+    @sensors = Sensor.all
+  end  
   # GET /sensors/1
   # GET /sensors/1.json
   def show
