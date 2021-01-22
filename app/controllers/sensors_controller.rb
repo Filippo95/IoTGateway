@@ -1,4 +1,5 @@
 class SensorsController < ApplicationController
+
   before_action :set_sensor, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
