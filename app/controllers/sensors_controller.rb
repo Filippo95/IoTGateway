@@ -5,7 +5,7 @@ class SensorsController < ApplicationController
   # GET /sensors
   # GET /sensors.json
   def index
-    @sensors = Sensor.all
+    @sensors = Sensor.where(["user_id = ? ", "1"])
   end  
   # GET /sensors/1
   # GET /sensors/1.json
