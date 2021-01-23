@@ -4,7 +4,9 @@
 
  <% if @sensors_groups.blank? %>
    <!-- Stringa che dice di inserire almeno un gruppo  -->
-   <p style="text-align: center"> Devi inserire almeno un gruppo </p>
+   <p style="text-align: center"> Devi inserire almeno un gruppo
+   <%= link_to 'Aggiungi Gruppo di Sensori', new_sensors_group_path, class:"btn pure-button pure-button-primary"%>
+   </p>
   <% else %>
     <table class="pure-table">
       <thead>
@@ -30,7 +32,7 @@
 
 <br>
 <div new>
-  <p style="width: 200px; margin: 0 auto"><%= link_to 'New Sensors Group', new_sensors_group_path %></p>
+  <p style="width: 200px; margin: 0 auto"><%= link_to 'Aggiungi Gruppo di Sensori', new_sensors_group_path, class:"btn pure-button pure-button-primary"%></p>
 </div>
 <style scoped>
 

@@ -7,13 +7,17 @@ class MisurationsController < ApplicationController
   # GET /misurations
   # GET /misurations.json
   def index
-   @misurations=Misuration.getMisurations
+    @misurations=Array.new
+    @sensors=current_user.sensors
+    @sensors.each do |s|
+      @misurations=@misurations+s.misurations
+    end
+
   end
 
   # GET /misurations/1
   # GET /misurations/1.json
   def show
-
   end
 
   # GET /misurations/new
@@ -37,7 +41,7 @@ class MisurationsController < ApplicationController
         format.html { render :new }
           format.json { render json: @misuration.errors, status: :unprocessable_entity }
       end
-    end    
+    end
   end
 
   # PATCH/PUT /misurations/1
@@ -64,9 +68,9 @@ class MisurationsController < ApplicationController
     end
   end
 
-  
 
-     
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -80,4 +84,3 @@ class MisurationsController < ApplicationController
       params.require(:misuration).permit(:mac, :value, :unit)
     end
 end
-
