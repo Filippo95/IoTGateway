@@ -11,15 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :mac %>
-    <%= form.text_field :mac %>
-  </div>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
+    <%= form.label :sensor_id %>
+    <%= form.collection_select :sensor_id, @availablesensors, :id, :name, include_blank: true %>
   </div>
+
 
   <div class="actions">
     <%= form.submit %>

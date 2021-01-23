@@ -5,17 +5,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Showcases a horizontal menu that hides at
-     small window widths, and which scrolls when revealed.">   
+     small window widths, and which scrolls when revealed.">
 
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
-    
+
     <title>IoT Gateway</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  
-    
+
+
 </head>
 <body>
 
@@ -172,7 +172,7 @@
 }
 </style>
 <div class="custom-menu-wrapper">
-   
+
     <% if user_signed_in? %>
     <div class="pure-menu pure-menu-horizontal pure-menu-scrollable custom-menu custom-menu-bottom custom-menu-tucked" id="tuckedMenu">
         <div class="custom-menu-screen"></div>
@@ -180,10 +180,12 @@
             <li class="pure-menu-item"><%= link_to "Home",root_path, class: "pure-menu-link"%></li>
             <li class="pure-menu-item"><%= link_to "Sensori", sensors_path, class: "pure-menu-link"%></li>
             <li class="pure-menu-item"><%= link_to "Misurazioni", misurations_path, class: "pure-menu-link"%></li>
+            <li class="pure-menu-item"><%= link_to "Iscrizione Misurazioni", misuration_subscriptions_path, class: "pure-menu-link"%></li>
             <li class="pure-menu-item"><%= link_to "Gruppi", sensors_groups_path, class: "pure-menu-link"%></li>
-            <li class="pure-menu-item"><%= link_to "Log out", destroy_user_session_path, method: :delete ,class: "pure-menu-link"%></li>
+            <li class="pure-menu-item"><%= link_to "Log out", destroy_user_session_path, method: :delete ,class: "pure-menu-link"%> </li>
+            <li class="pure-menu-item"><%=current_user.email %></li>
         </ul>
-         
+
     </div>
     <%end %>
 
@@ -193,7 +195,7 @@
 .main {
     color: black;
     padding-left: 3%;
-    
+
 }
 </style>
 
@@ -204,12 +206,10 @@
 <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
-        
+
     <%= yield %>
 </div>
 
 
 </body>
 </html>
-
-

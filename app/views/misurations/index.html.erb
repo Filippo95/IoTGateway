@@ -1,6 +1,6 @@
 
 <h1>Misurazioni </h1>
-
+<h3>Le misurazioni dei miei dispositivi</h3>
 <table class="pure-table pure-table-horizontal">
   <thead>
     <tr>
@@ -14,7 +14,7 @@
   </thead>
 
   <tbody>
-    <% @misurations.each do |misuration| %>
+    <% @mymisurations.each do |misuration| %>
       <tr>
         <td><%= misuration.mac %></td>
         <td><%= misuration.value %></td>
@@ -32,6 +32,35 @@
 <br>
 
 <%= link_to 'Aggiungi Misurazione', new_misuration_path ,class:"pure-button pure-button-primary"%>
+<h3>Le misurazioni di altri sensori </h3>
+<table class="pure-table pure-table-horizontal">
+  <thead>
+    <tr>
+      <th>MAC</th>
+      <th>url</th>
+      <th>Proprietario</th>
+      <th>Valore</th>
+      <th>Unità di misura</th>
+      <th>Data</th>
+      <th>ora</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @othermisurations.each do |misuration| %>
+      <tr>
+        <td><%= misuration.mac %></td>
+        <td><%= misuration.sensor.url %></td>
+        <td><%= misuration.sensor.user.email %></td>
+        <td><%= misuration.value %></td>
+        <td><%= misuration.unit %></td>
+        <td><%= misuration.created_at.strftime("%d-%m-%Y") %></td>
+        <td><%= misuration.created_at.strftime("%T")%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 <style scoped>
 
         .button-success,

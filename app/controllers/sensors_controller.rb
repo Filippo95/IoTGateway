@@ -6,8 +6,12 @@ class SensorsController < ApplicationController
   # GET /sensors
   # GET /sensors.json
   def index
-    @sensors = Sensor.all
-  end  
+    @mysensors = current_user.sensors
+    @othersensors=Array.new
+    current_user.misuration_subscription.each do |ss|
+        @othersensors.push(ss.sensor)
+    end
+  end
   # GET /sensors/1
   # GET /sensors/1.json
   def show
@@ -43,11 +47,13 @@ class SensorsController < ApplicationController
   # PATCH/PUT /sensors/1.json
   def update
     respond_to do |format|
-      if @sensor.update(sensor_params)
+      if @sensor.update(sensor_params) && @sensor.user_id==current_user.id
         format.html { redirect_to @sensor, notice: 'Sensor was successfully updated.' }
         format.json { render :show, status: :ok, location: @sensor }
       else
-        format.html { render :edit }
+        format.html {
+          flash[:notice] = 'Non puoi modificare un sensore non tuo!'
+          render :edit }
         format.json { render json: @sensor.errors, status: :unprocessable_entity }
       end
     end
@@ -56,10 +62,12 @@ class SensorsController < ApplicationController
   # DELETE /sensors/1
   # DELETE /sensors/1.json
   def destroy
-    @sensor.destroy
+
     respond_to do |format|
-      format.html { redirect_to sensors_url, notice: 'Sensor was successfully destroyed.' }
-      format.json { head :no_content }
+      if  @sensor.user_id==current_user.id && @sensor.destroy
+        format.html { redirect_to sensors_url, notice: 'Sensor was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 

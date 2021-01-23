@@ -7,11 +7,24 @@ class MisurationsController < ApplicationController
   # GET /misurations
   # GET /misurations.json
   def index
-    @misurations=Array.new
-    @sensors=current_user.sensors
-    @sensors.each do |s|
-      @misurations=@misurations+s.misurations
+    @mymisurations=Array.new
+    #prendo le misurazioni degli utenti
+    @mysensors=current_user.sensors
+    @mysensors.each do |s|
+      @mymisurations=@mymisurations+s.misurations
     end
+
+    @othermisurations=Array.new
+    @subscriptions=current_user.misuration_subscription
+    @subscriptions.each do |sub|
+      @othermisurations=@othermisurations+Misuration.where("sensor_id=?", sub.sensor_id)
+    end
+
+
+    #prendo le misurazioni dei sensori pubblici a cui l'utente si è iscritto
+    #@misuration_subscriptions=current_user.misuration_subscriptions
+
+
 
   end
 
@@ -48,11 +61,12 @@ class MisurationsController < ApplicationController
   # PATCH/PUT /misurations/1.json
   def update
     respond_to do |format|
-      if @misuration.update(misuration_params)
+      if @misuration.sensor.id==current_user.id && @misuration.update(misuration_params)
         format.html { redirect_to @misuration, notice: 'Misuration was successfully updated.' }
         format.json { render :show, status: :ok, location: @misuration }
       else
-        format.html { render :edit }
+        format.html {   flash[:notice] = 'Non puoi modificare una misurazione di sensore non tuo!'
+          render :edit }
         format.json { render json: @misuration.errors, status: :unprocessable_entity }
       end
     end

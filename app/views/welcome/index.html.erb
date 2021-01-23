@@ -39,7 +39,7 @@
 
     <div class="content pure-u-1 pure-u-md-3-4">
         <div>
-            
+
 
         </div>
     </div>
@@ -229,5 +229,69 @@ h3 {
 </body>
 </html>
 <%else%>
-ok Sei loggato
+Ciao, <%=current_user.email%>
+<h3> I miei sensori</h3>
+<table class="pure-table pure-table-horizontal">
+  <thead>
+    <tr>
+      <th>Mac</th>
+      <th>Url</th>
+      <th>Tipo</th>
+      <th>Latitudine</th>
+      <th>Longitudine</th>
+      <th>Unità misura</th>
+      <th>Owner</th>
+      <th>Publico</th>
+      <th>Downtime to alarm</th>
+      <th>Last firmware update</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% current_user.sensors.each do |sensor| %>
+      <tr>
+        <td><%= sensor.mac %></td>
+        <td><%= sensor.url %></td>
+        <td><%= sensor.tipo %></td>
+        <td><%= sensor.latitudine %></td>
+        <td><%= sensor.longitudine %></td>
+        <td><%= sensor.unit_misura %></td>
+        <td><%= sensor.user_id %></td>
+        <td><%= sensor.public %></td>
+        <td><%= sensor.downtime_to_alarm %></td>
+        <td><%= sensor.last_firmware_update %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>Le misurazioni dei miei dispositivi</h3>
+<table class="pure-table pure-table-horizontal">
+  <thead>
+    <tr>
+      <th>MAC</th>
+      <th>Valore</th>
+      <th>Unità di misura</th>
+      <th>Data</th>
+      <th>ora</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% current_user.sensors.each do |sensor|
+      sensor.misurations.each do |misuration|  %>
+      <tr>
+        <td><%= misuration.mac %></td>
+        <td><%= misuration.value %></td>
+        <td><%= misuration.unit %></td>
+        <td><%= misuration.created_at.strftime("%d-%m-%Y") %></td>
+        <td><%= misuration.created_at.strftime("%T")%></td>
+        </tr>
+          <% end %>
+    <% end %>
+  </tbody>
+</table>
+
 <%end%>

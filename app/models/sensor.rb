@@ -6,26 +6,27 @@ class Sensor < ApplicationRecord
 	validates :longitudine, presence: true
 	validates :unit_misura, presence: true
     validates :user_id, 	presence: true
-    
+
     validates_uniqueness_of :mac, :message=>"mac must be unique"
-	
+
 	has_many :misuration_subscriptions
-	has_many :misurations 
+	has_many :misurations
 	has_many :sensor_group_subscriptions
-	
+
 	belongs_to :user
 
 
 
-	
+
 
 
 	def set_defaults
-		#default sensor are not public 
+		#default sensor are not public
     	self.public = false if self.public.nil?
 	end
+	def name
+		"#{url}  #{mac} - #{user.email}"
+	end
 
-	
-	
+
 end
-
