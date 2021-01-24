@@ -1,4 +1,3 @@
-# README
 # IOT Gateway
 
 This project is about a simple IOT Gateway for small sensors which send via HTTP some metrics. 
