@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   #Route for IoTdevice that send data to this gateway
   post 'receiver/recevie'
   get 'receiver/state'
+  get 'sensors/my'
   resources :sensors
   resources :sensors_group_subscriptions
   resources :sensors_groups
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
         sessions: 'users/sessions'
       }
  root 'welcome#index'
- 
- 
+
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

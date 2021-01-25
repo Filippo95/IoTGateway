@@ -11,12 +11,24 @@ class SensorsController < ApplicationController
     current_user.misuration_subscription.each do |ss|
         @othersensors.push(ss.sensor)
     end
+
+
   end
   # GET /sensors/1
   # GET /sensors/1.json
   def show
   end
+  def my
+    @mysensors = current_user.sensors
+    @othersensors=Array.new
+    current_user.misuration_subscription.each do |ss|
+        @othersensors.push(ss.sensor)
+    end
+    respond_to do |format|
 
+      format.json { render json: @mysensors+@othersensors}
+    end
+  end
   # GET /sensors/new
   def new
     @sensor = Sensor.new
