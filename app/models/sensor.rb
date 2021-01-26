@@ -5,9 +5,9 @@ class Sensor < ApplicationRecord
 	validates :latitudine, 	presence: true
 	validates :longitudine, presence: true
 	validates :unit_misura, presence: true
-    validates :user_id, 	presence: true
+  validates :user_id, 	presence: true
 
-    validates_uniqueness_of :mac, :message=>"mac must be unique"
+  validates_uniqueness_of :mac, :message=>"mac must be unique"
 
 	has_many :misuration_subscriptions
 	has_many :misurations

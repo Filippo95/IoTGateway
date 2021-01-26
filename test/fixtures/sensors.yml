@@ -12,9 +12,69 @@ no_mac:
   downtime_to_alarm: 2020-03-31 15:46:34
   last_firmware_update: 2020-03-31
 
+incorrect_mac:
+  id: 12
+  mac: 02:23:45:67:89:AH
+  url: no_mac_url
+  tipo: no_mac_tipo
+  latitudine: no_mac_latitudine
+  longitudine: no_mac_longitudine
+  unit_misura: no_mac_unitmisura
+  user_id: 1
+  public: true
+  downtime_to_alarm: 2020-03-31 15:46:34
+  last_firmware_update: 2020-03-31
+
+no_url:
+  id: 11
+  mac: 02:23:45:67:89:A2
+  tipo: no_mac_tipo
+  latitudine: no_mac_latitudine
+  longitudine: no_mac_longitudine
+  unit_misura: no_mac_unitmisura
+  user_id: 1
+  public: true
+  downtime_to_alarm: 2020-03-31 15:46:34
+  last_firmware_update: 2020-03-31
+
+no_latitudine:
+  id: 2
+  mac: 05:23:45:67:89:A3
+  url: complete1_url
+  tipo: complete1_tipo
+  longitudine: complete1_longitudine
+  unit_misura: complete1_unitmisura
+  user_id: 1
+  public: true
+  downtime_to_alarm: 2020-03-31 15:46:34
+  last_firmware_update: 2020-03-31
+
+no_longitudine:
+  id: 41
+  mac: 01:23:45:67:89:A4
+  url: complete1_url
+  tipo: complete1_tipo
+  latitudine: complete1_latitudine
+  unit_misura: complete1_unitmisura
+  user_id: 1
+  public: true
+  downtime_to_alarm: 2020-03-31 15:46:34
+  last_firmware_update: 2020-03-31
+
+no_unit_misura:
+  id: 42
+  mac: 01:23:45:67:89:A5
+  url: complete1_url
+  tipo: complete1_tipo
+  latitudine: complete1_latitudine
+  user_id: 1
+  public: true
+  downtime_to_alarm: 2020-03-31 15:46:34
+  last_firmware_update: 2020-03-31
+
 no_public_value:
   id: 9
-  mac: 01:23:45:67:89:AE
+  mac: 01:23:45:67:89:A6
   url: no_public_value_url
   tipo: no_public_value_tipo
   latitudine: no_public_value_latitudine
@@ -26,7 +86,7 @@ no_public_value:
 
 no_owner:
   id: 3
-  mac: 01:23:45:67:89:AB
+  mac: 01:23:45:67:89:A7
   url: no_owner_url
   tipo: nno_owner_tipo
   latitudine: no_owner_latitudine
@@ -38,7 +98,7 @@ no_owner:
 
 complete1:
   id: 4
-  mac: 01:23:45:67:89:AB
+  mac: 01:23:45:67:89:A8
   url: complete1_url
   tipo: complete1_tipo
   latitudine: complete1_latitudine
@@ -51,7 +111,7 @@ complete1:
 
 complete2:
   id: 5
-  mac: 01:23:45:67:89:AB
+  mac: 01:23:45:67:89:A9
   url: complete2_url
   tipo: complete2_tipo
   latitudine: complete2_latitudine
