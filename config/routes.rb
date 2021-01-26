@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   post 'receiver/recevie'
   get 'receiver/state'
   get 'sensors/my'
+  get 'receiver/sensors'
   resources :sensors
   resources :sensors_group_subscriptions
   resources :sensors_groups
