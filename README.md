@@ -64,8 +64,8 @@ ruby VirtualDevice.rb [sleepTime] [application host] [port] [user's email]
 ```
 or just:
 ```bash
-chmod +x virtual_sensors.rb [sleepTime] [application host] [port] [user's email]
-virtual_sensors.rb 
+chmod +x virtual_sensors.rb 
+virtual_sensors.rb [sleepTime] [application host] [port] [user's email]
 ```
 ## RoadMap (TODOS)
 * Increase test suite
