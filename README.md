@@ -60,11 +60,11 @@ it's called 'virtual_sensors.rb', it perform a GET query to the application back
 As parameters it take the sleepTime (seconds) between a set of sending requests, because it receive all sensors, it send a record for each sensor and than it sleep for some seconds, that's the sleepTime.\
 To execute that script on your computer you can:
 ```bash
-ruby virtual_sensors.rb  sleepTime
+ruby VirtualDevice.rb [sleepTime] [application host] [port] [user's email]
 ```
 or just:
 ```bash
-chmod +x virtual_sensors.rb
+chmod +x virtual_sensors.rb [sleepTime] [application host] [port] [user's email]
 virtual_sensors.rb 
 ```
 ## RoadMap (TODOS)
