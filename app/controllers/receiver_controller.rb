@@ -6,6 +6,7 @@ class ReceiverController < ApplicationController
 
     respond_to do |format|
       if @misuration.save
+        OrderMailer.new_misuration(@misuration).deliver_now
         msg = { :status => "ok", :message => "Success!"}
         format.json  { render :json => msg }
       else

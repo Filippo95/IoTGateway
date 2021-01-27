@@ -1,0 +1,7 @@
+<p> Nuova misurazione inserita per il tuo sensore: <%= @sensor.mac%> </p> </p>
+<p>
+Valore misurazione: <%= @misuration.value %> <%= @misuration.unit%>
+</p>
+<p> Per vedere la misurazione visita:
+
+<%= link_to "misurazione", @misuration%> </p>

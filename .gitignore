@@ -41,3 +41,5 @@ yarn-debug.log*
 /Gemfile
 /Gemfile.lock
 /file.txt
+# Ignore application configuration
+/config/application.yml
