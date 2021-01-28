@@ -1,5 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+no_sensor_id:
+  user_id: 2
+
+no_user_id:
+  sensor_id: 3
+
 one:
   sensor_id: 4
   user_id: 2

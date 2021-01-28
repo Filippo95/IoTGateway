@@ -1,5 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+no_name:
+  id_user_group: 1
+
+no_id_user_group:
+  nome: MyString
+
 one:
   nome: MyString
   id_user_group: 1

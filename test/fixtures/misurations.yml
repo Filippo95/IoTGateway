@@ -4,8 +4,16 @@ no_mac:
   value: 1.5
   unit: cm
 
+no_value:
+  mac: 01:23:45:67:89:A9
+  unit: cm
+
+no_unit:
+  mac: 01:23:45:67:89:A9
+  value: 1.5
+
 mac_valid:
-  mac: 01:23:45:67:89:AE
+  mac: 01:23:45:67:89:A9
   value: 1.5
   unit: cm
 

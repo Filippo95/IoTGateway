@@ -1,5 +1,12 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+no_id_sensor_group:
+  sensor_id: 1
+
+no_id_sensor:
+  sensor_group_id: 1
+
+
 one:
   sensor_group_id: 1
   sensor_id: 1
