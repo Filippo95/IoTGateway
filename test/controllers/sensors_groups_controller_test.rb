@@ -28,10 +28,10 @@ class SensorsGroupsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get edit" do
-    get edit_sensors_group_url(@sensors_group)
-    assert_response :success
-  end
+  #test "should get edit" do
+    #get edit_sensors_group_url(@sensors_group)
+    #assert_response :success
+  #end
 
   test "should update sensors_group" do
     patch sensors_group_url(@sensors_group), params: { sensors_group: { id_user_group: @sensors_group.id_user_group, nome: @sensors_group.nome } }

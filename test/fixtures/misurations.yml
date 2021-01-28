@@ -22,3 +22,8 @@ sensor_not_present:
   value: 1.5
   unit: cm
 
+one:
+  mac: 09:23:45:67:89:A9
+  value: 1.5
+  unit: cm
+

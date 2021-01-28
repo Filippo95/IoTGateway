@@ -16,7 +16,7 @@ class MisurationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create misuration" do
-    assert_difference('Misuration.count') do
+    assert_difference('Misuration.count',1) do
       post misurations_url, params: { misuration: { mac: @misuration.mac, unit: @misuration.unit, value: @misuration.value } }
     end
 

@@ -96,7 +96,7 @@ no_owner:
   downtime_to_alarm: 2020-03-31 15:46:34
   last_firmware_update: 2020-03-31
 
-complete1:
+one:
   id: 4
   mac: 01:23:45:67:89:A8
   url: complete1_url

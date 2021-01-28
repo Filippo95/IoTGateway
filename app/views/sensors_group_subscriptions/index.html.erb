@@ -14,8 +14,8 @@
   <tbody>
     <% @sensors_group_subscriptions.each do |sensors_group_subscription| %>
       <tr>
-        <td><%= sensors_group_subscription.id_sensor_group %></td>
-        <td><%= sensors_group_subscription.id_sensor %></td>
+        <td><%= sensors_group_subscription.sensor_group_id %></td>
+        <td><%= sensors_group_subscription.sensor_id %></td>
         <td><%= link_to 'Show', sensors_group_subscription %></td>
         <td><%= link_to 'Edit', edit_sensors_group_subscription_path(sensors_group_subscription) %></td>
         <td><%= link_to 'Destroy', sensors_group_subscription, method: :delete, data: { confirm: 'Are you sure?' } %></td>
