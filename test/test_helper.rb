@@ -13,4 +13,13 @@ class ActiveSupport::TestCase
   #def sign_in_as(user)
     #post users_sign_in_url, params: {session: {email: user.email,password: user.password}}
   #end
+  include Devise::Test::IntegrationHelpers
+  include Warden::Test::Helpers 
+  def log_in (user)
+  	if integration_test?
+  		login_as(user,:scope=>:user)
+  	else
+  		sign_in(user)
+  	end
+  end
 end

@@ -4,12 +4,15 @@ class SensorsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @sensor = sensors(:one)
     @user=User.create(email: "pippo@example.com", password:"pippo")
+    get '/users/sign_in'
+    sign_in users(:user_001)
+    post user_session_path
   end
 
   test "should get index" do
     #sign_in_as(@user)
-    #get sensors_url
-    #assert_response :success
+    get sensors_url
+    assert_response :success
   end
 
   #test "should get new" do
