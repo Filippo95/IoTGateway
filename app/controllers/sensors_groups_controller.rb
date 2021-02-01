@@ -69,6 +69,6 @@ class SensorsGroupsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def sensors_group_params
-      params.require(:sensors_group).permit(:nome, :id_user_group)
+      params.require(:sensors_group).permit(:nome, :id_user)
     end
 end

@@ -1,9 +1,9 @@
 class SensorsGroupSubscription < ApplicationRecord
 
-	validates :sensor_group_id, :sensor_id, presence: true, numericality: {only_integer: true}
+	validates :sensors_group_id, :sensor_id, presence: true
 	#Aggiungere
 
 	belongs_to :sensor 
-	belongs_to :sensor_group
+	belongs_to :sensors_group
 	
 end

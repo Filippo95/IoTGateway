@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_31_134634) do
+ActiveRecord::Schema.define(version: 2021_02_01_143020) do
 
   create_table "misuration_subscriptions", force: :cascade do |t|
     t.integer "user_id"
@@ -49,18 +49,19 @@ ActiveRecord::Schema.define(version: 2020_03_31_134634) do
 
   create_table "sensors_group_subscriptions", force: :cascade do |t|
     t.integer "sensor_id"
-    t.integer "sensor_group_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["sensor_group_id"], name: "index_sensors_group_subscriptions_on_sensor_group_id"
+    t.integer "sensors_group_id"
     t.index ["sensor_id"], name: "index_sensors_group_subscriptions_on_sensor_id"
+    t.index ["sensors_group_id"], name: "index_sensors_group_subscriptions_on_sensors_group_id"
   end
 
   create_table "sensors_groups", force: :cascade do |t|
     t.string "nome"
-    t.integer "id_user_group"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_sensors_groups_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

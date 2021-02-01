@@ -11,7 +11,8 @@ class Sensor < ApplicationRecord
 
 	has_many :misuration_subscriptions
 	has_many :misurations
-	has_many :sensor_group_subscriptions
+	has_many :sensors_group_subscriptions
+	has_many :sensors_groups, through: :sensors_group_subscriptions
 
 	belongs_to :user
 

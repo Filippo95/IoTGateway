@@ -1,8 +1,9 @@
 class SensorsGroup < ApplicationRecord
 
-	validates :nome, :id_user_group, presence: true
+	validates :nome, :user_id, presence: true
 	#Aggiungere parte relativa all'user group cioè controllare che id del gruppo sia presente
 	
-
-	has_many :sensor_group_subscriptions
+	belongs_to :user
+	has_many :sensors_group_subscriptions
+	has_many :sensors, through: :sensors_group_subscriptions
 end
