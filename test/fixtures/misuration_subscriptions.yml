@@ -7,8 +7,9 @@ no_user_id:
   sensor_id: 3
 
 one:
+  id: 1
   sensor_id: 4
-  user_id: 2
+  user_id: 3
 
 two:
   sensor_id: 5
