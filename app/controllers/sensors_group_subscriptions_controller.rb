@@ -16,7 +16,15 @@ class SensorsGroupSubscriptionsController < ApplicationController
   def new
     @sensors_group_subscription = SensorsGroupSubscription.new
     @sensor_groups=current_user.sensors_groups
-    @sensors=Sensor.all
+    @misuration_subscription = MisurationSubscription.new
+      @m=Array.new
+    MisurationSubscription.where("user_id=?",current_user.id).each do |m|
+      @m.push(m.sensor_id)
+    end
+    @availablesensors=Sensor.all.where("public=true").where(id: @m)
+    @mysensors=current_user.sensors
+    @sensors=@availablesensors | @mysensors
+
   end
 
   # GET /sensors_group_subscriptions/1/edit
