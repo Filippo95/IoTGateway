@@ -2,11 +2,11 @@
 
 <h1>Sensors Group Subscriptions</h1>
 
-<table>
+<table class="pure-table">
   <thead>
     <tr>
-      <th>Id sensor group</th>
-      <th>Id sensor</th>
+      <th>Gruppo</th>
+      <th>MAC sensore</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,11 +14,10 @@
   <tbody>
     <% @sensors_group_subscriptions.each do |sensors_group_subscription| %>
       <tr>
-        <td><%= sensors_group_subscription.sensors_group_id %></td>
-        <td><%= sensors_group_subscription.sensor_id %></td>
-        <td><%= link_to 'Show', sensors_group_subscription %></td>
-        <td><%= link_to 'Edit', edit_sensors_group_subscription_path(sensors_group_subscription) %></td>
-        <td><%= link_to 'Destroy', sensors_group_subscription, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= sensors_group_subscription.sensors_group.nome %></td>
+        <td><%= sensors_group_subscription.sensor.mac %></td>
+        <td><%= link_to 'Show', sensors_group_subscription,class: "pure-button pure-button-active" %></td>
+        <td><%= link_to 'Destroy', sensors_group_subscription,class: "pure-button pure-button-active", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,4 +26,43 @@
 <br>
 
 
-<%= link_to 'New Sensors Group Subscription', new_sensors_group_subscription_path %>
+
+<div new>
+  <p style="width: 200px; margin: 0 auto"><%= link_to 'New Sensors Group Subscription', new_sensors_group_subscription_path ,class:"btn pure-button pure-button-primary"%></p>
+</div>
+<style scoped>
+
+        .button-success,
+        .button-error,
+        .button-warning,
+        .button-secondary {
+            color: white;
+            border-radius: 4px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        }
+
+        .button-success {
+            background: rgb(28, 184, 65); /* this is a green */
+        }
+
+        .button-error {
+            background: rgb(202, 60, 60); /* this is a maroon */
+        }
+
+        .button-warning {
+            background: rgb(223, 117, 20); /* this is an orange */
+        }
+
+        .button-secondary {
+            background: rgb(66, 184, 221); /* this is a light blue */
+        }
+
+        td{ text-align: center; }
+
+        .main{
+          width: 500px;
+          height: 500px;
+          margin: 0 auto;
+        }
+
+    </style>

@@ -1,14 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Sensor_id:</strong>
-  <%= @misuration_subscription.sensor_id %>
+  <strong>MAC sensore:</strong>
   <%= @misuration_subscription.sensor.mac %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @misuration_subscription.user_id %>
+  <strong>Utente iscritto:</strong>
+  <%= @misuration_subscription.user.email %>
 </p>
 
 <%= link_to 'Edit', edit_misuration_subscription_path(@misuration_subscription) %> |

@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Id sensor group:</strong>
-  <%= @sensors_group_subscription.sensor_group_id %>
+  <strong>Gruppo:</strong>
+  <%= @sensors_group_subscription.sensors_group.nome %>
 </p>
 
 <p>
-  <strong>Id sensor:</strong>
-  <%= @sensors_group_subscription.sensor_id %>
+  <strong>MAC sensore:</strong>
+  <%= @sensors_group_subscription.sensor.mac %>
 </p>
 
 <%= link_to 'Edit', edit_sensors_group_subscription_path(@sensors_group_subscription) %> |

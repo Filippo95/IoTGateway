@@ -15,7 +15,7 @@ class SensorsGroupSubscriptionsController < ApplicationController
   # GET /sensors_group_subscriptions/new
   def new
     @sensors_group_subscription = SensorsGroupSubscription.new
-    @sensor_groups=SensorsGroup.all
+    @sensor_groups=current_user.sensors_groups
     @sensors=Sensor.all
   end
 
@@ -71,6 +71,6 @@ class SensorsGroupSubscriptionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def sensors_group_subscription_params
-      params.require(:sensors_group_subscription).permit(:id_sensor_group, :id_sensor)
+      params.require(:sensors_group_subscription).permit(:sensors_group_id, :sensor_id)
     end
 end
