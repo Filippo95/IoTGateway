@@ -15,7 +15,7 @@ class MisurationsController < ApplicationController
     end
 
     @othermisurations=Array.new
-    @subscriptions=current_user.misuration_subscription
+    @subscriptions=current_user.misuration_subscriptions
     @subscriptions.each do |sub|
       @othermisurations=@othermisurations+Misuration.where("sensor_id=?", sub.sensor_id)
     end

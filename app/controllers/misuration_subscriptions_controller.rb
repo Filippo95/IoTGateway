@@ -4,7 +4,7 @@ class MisurationSubscriptionsController < ApplicationController
   # GET /misuration_subscriptions
   # GET /misuration_subscriptions.json
   def index
-    @misuration_subscriptions = current_user.misuration_subscription.all
+    @misuration_subscriptions = current_user.misuration_subscriptions.all
   end
 
   # GET /misuration_subscriptions/1

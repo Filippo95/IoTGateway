@@ -25,7 +25,7 @@ class SensorsGroupsController < ApplicationController
   # POST /sensors_groups.json
   def create
     @sensors_group = SensorsGroup.new(sensors_group_params)
-
+    @sensors_group.user_id=current_user.id
     respond_to do |format|
       if @sensors_group.save
         format.html { redirect_to @sensors_group, notice: 'Sensors group was successfully created.' }
@@ -69,6 +69,6 @@ class SensorsGroupsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def sensors_group_params
-      params.require(:sensors_group).permit(:nome, :id_user)
+      params.require(:sensors_group).permit(:nome, :user_id)
     end
 end

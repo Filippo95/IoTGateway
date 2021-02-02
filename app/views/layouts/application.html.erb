@@ -181,6 +181,7 @@
             <li class="pure-menu-item"><%= link_to "Misurazioni", misurations_path, class: "pure-menu-link"%></li>
             <li class="pure-menu-item"><%= link_to "Iscrizione Misurazioni", misuration_subscriptions_path, class: "pure-menu-link"%></li>
             <li class="pure-menu-item"><%= link_to "Gruppi", sensors_groups_path, class: "pure-menu-link"%></li>
+            <li class="pure-menu-item"><%= link_to "Iscrizione Gruppi", sensors_group_subscriptions_path, class: "pure-menu-link"%></li>
             <li class="pure-menu-item"><%= link_to "Log out", destroy_user_session_path, method: :delete ,class: "pure-menu-link"%> </li>
             <li class="pure-menu-item"><%=current_user.email %></li>
         </ul>

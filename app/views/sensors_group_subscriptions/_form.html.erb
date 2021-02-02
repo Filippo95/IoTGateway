@@ -12,13 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :id_sensor_group %>
-    <%= form.number_field :id_sensor_group %>
+    <%= form.label :sensors_group_id %>
+    <%= form.collection_select :sensor_group_id, @sensor_groups, :id, :nome, include_blank: true %>
   </div>
 
   <div class="field">
-    <%= form.label :id_sensor %>
-    <%= form.number_field :id_sensor %>
+    <%= form.label :sensor_id %>
+    <%= form.collection_select :sensor_id, @sensors, :id, :name, include_blank: true %>
   </div>
 
   <div class="actions">

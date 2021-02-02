@@ -15,6 +15,8 @@ class SensorsGroupSubscriptionsController < ApplicationController
   # GET /sensors_group_subscriptions/new
   def new
     @sensors_group_subscription = SensorsGroupSubscription.new
+    @sensor_groups=SensorsGroup.all
+    @sensors=Sensor.all
   end
 
   # GET /sensors_group_subscriptions/1/edit

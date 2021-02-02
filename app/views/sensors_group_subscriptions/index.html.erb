@@ -14,7 +14,7 @@
   <tbody>
     <% @sensors_group_subscriptions.each do |sensors_group_subscription| %>
       <tr>
-        <td><%= sensors_group_subscription.sensor_group_id %></td>
+        <td><%= sensors_group_subscription.sensors_group_id %></td>
         <td><%= sensors_group_subscription.sensor_id %></td>
         <td><%= link_to 'Show', sensors_group_subscription %></td>
         <td><%= link_to 'Edit', edit_sensors_group_subscription_path(sensors_group_subscription) %></td>
@@ -25,5 +25,6 @@
 </table>
 
 <br>
+
 
 <%= link_to 'New Sensors Group Subscription', new_sensors_group_subscription_path %>

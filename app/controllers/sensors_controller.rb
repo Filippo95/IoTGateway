@@ -8,7 +8,7 @@ class SensorsController < ApplicationController
   def index
     @mysensors = current_user.sensors
     @othersensors=Array.new
-    current_user.misuration_subscription.each do |ss|
+    current_user.misuration_subscriptions.each do |ss|
         @othersensors.push(ss.sensor)
     end
 
@@ -21,7 +21,7 @@ class SensorsController < ApplicationController
   def my
     @mysensors = current_user.sensors
     @othersensors=Array.new
-    current_user.misuration_subscription.each do |ss|
+    current_user.misuration_subscriptions.each do |ss|
         @othersensors.push(ss.sensor)
     end
     respond_to do |format|
