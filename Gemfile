@@ -54,6 +54,7 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
   gem 'sqlite3'
+
 end
 
 group :production do 
@@ -66,3 +67,4 @@ gem 'devise','~>4.7.1'
 
 
 gem 'jquery-datatables'
+gem 'whenever', require: false
