@@ -4,7 +4,7 @@ class SensorsGroupsController < ApplicationController
   # GET /sensors_groups
   # GET /sensors_groups.json
   def index
-    @sensors_groups = SensorsGroup.all
+    @sensors_groups = current_user.sensors_groups
   end
 
   # GET /sensors_groups/1

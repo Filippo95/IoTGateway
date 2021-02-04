@@ -4,7 +4,13 @@ class SensorsGroupSubscriptionsController < ApplicationController
   # GET /sensors_group_subscriptions
   # GET /sensors_group_subscriptions.json
   def index
-    @sensors_group_subscriptions = SensorsGroupSubscription.all
+    @sensors_group_subscriptions=Array.new
+    current_user.sensors.each do |sensor|
+      sensor.sensors_group_subscriptions.each do |sub|
+        @sensors_group_subscriptions.push(sub)
+      end
+    end
+    
   end
 
   # GET /sensors_group_subscriptions/1
