@@ -6,7 +6,7 @@ class OrderMailerPreview < ActionMailer::Preview
   end
 
   def send_alarm
-    misuration = Misuration.last
-    OrderMailer.send_alarm(misuration)
+    sensor = Sensor.last
+    OrderMailer.send_alarm(sensor)
   end
 end

@@ -7,11 +7,11 @@ class OrderMailer < ApplicationMailer
    		 Subject: "Nuova misurazione per il sensore #{@sensor.mac}"
   end
 
-  def send_alarm(misuration)
-    @misuration = misuration
-    @sensor = @misuration.sensor
+  def send_alarm(sensor)
+    @sensor = sensor
+    
 
     mail to: @sensor.user.email,
-   		 Subject: "La misura #{@misuration.value} #{@misuration.unit} per il sensore con mac: #{@sensor.mac} è arrivata dopo il tempo di timeout"
+   		 Subject: "Il sensore  con mac: #{@sensor.mac} è in ritardo!"
   end
 end

@@ -18,7 +18,9 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
+
 set :output, "log/cron.log"
+set :job_template, "/bin/zsh  -c ':job'"
 
 every 1.minute do 
 	
