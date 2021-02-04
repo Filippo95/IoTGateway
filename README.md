@@ -68,11 +68,9 @@ chmod +x virtual_sensors.rb
 virtual_sensors.rb [sleepTime] [application host] [port] [user's email]
 ```
 ## RoadMap (TODOS)
-* Increase test suite
-* develop users group and sensor group
+
 * some graphics
 * upload firmware
-* mail alert
 * 
 
 ## License
