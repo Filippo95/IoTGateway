@@ -1,4 +1,3 @@
-<%= form_with(model: @sensor, local: true) do |form| %>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -45,64 +44,16 @@
   <strong>Downtime to alarm:</strong>
   <%= @sensor.downtime_to_alarm %>
 </p>
-
+<p>
+<% if @sensor.image.attached?%>
+  <strong>
+  Ultimo aggiornamento firware: <%= @sensor.image.created_at.strftime("%Y-%m-%d %H:%M")%>
+  </strong>
+<% else%>
+</p>
 <p>
   <strong>Last firmware update:</strong>
   <%= @sensor.last_firmware_update %>
 </p>
+<% end%>
 
-<div class="form-group row">
-    <div class="col-8">
-      <%= form.file_field :image,  class: "form-control shadow rounded"%>
-        <div id="bottone" class="form-group row justify-content-center">
-          <%= form.submit(@sensor.new_record? ?  "Crea sensore" : "Aggiorna firmware",  class: "btn btn-outline-primary") %>
-        </div>
-    </div>   
-
-
-
-<%= link_to 'Modifica', edit_sensor_path(@sensor),  class: "pure-button"%> 
-<%= link_to 'Back', sensors_path , class: "pure-button"%>
-
-
-<%= form.hidden_field :mac, class: "form-control shadow rounded"%>
-        
-
-        
-<%= form.hidden_field :url,  class: "form-control shadow rounded"%>
-       
-
-     
-<%= form.hidden_field :tipo,  class: "form-control shadow rounded"%>
-        
-
-      
-<%= form.hidden_field :latitudine,  class: "form-control shadow rounded"%>
-        
-
-      
-<%= form.hidden_field :longitudine,  class: "form-control shadow rounded"%>
-        
-
-      
-<%= form.hidden_field :unit_misura,  class: "form-control shadow rounded"%>
-        
-
-    
-<%= form.hidden_field :public,  class: "form-check-input"%>
-      
-
- 
-<%= form.hidden_field :downtime_to_alarm,  class: "form-control shadow rounded"%>
-         
-
-     
-<%= form.hidden_field :last_firmware_update,  class: "form-control shadow rounded"%>
-         
-
-     
-<%= form.hidden_field :user_id %>
-
-
-</div>
-<%end%>

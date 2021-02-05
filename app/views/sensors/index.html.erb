@@ -35,6 +35,7 @@
         <td><%= link_to 'Visualizza', sensor , class: "button-success pure-button" %></td>
         <td><%= link_to 'Modifica', edit_sensor_path(sensor), class: "button-warning pure-button" %></td>
         <td><%= link_to 'Elimina', sensor, method: :delete, data: { confirm: 'Sei sicuro?' } , class: "button-error pure-button"%></td>
+        <td><%= link_to "Aggiorna firmware", aggiorna_firmware_path(id: sensor.id), class: "btn btn-outline-info" %></td>
       </tr>
     <% end %>
   </tbody>

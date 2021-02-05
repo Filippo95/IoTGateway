@@ -12,6 +12,9 @@ class SensorsController < ApplicationController
         @othersensors.push(ss.sensor)
     end
 
+  def aggiorna_firmware
+    @sensors = Sensor.find(params[:id])
+  end  
 
   end
   # GET /sensors/1

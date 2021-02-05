@@ -1,4 +1,5 @@
 class Sensor < ApplicationRecord
+	has_one_attached :image,:dependent => :destroy
 	before_validation :set_defaults
 	validates :url,  		presence: true
 	validates :mac, 		presence: true,	format: { with: /\A([0-9A-F]{2}[:-]){5}([0-9A-F]{2})\z/ , message: "mac regex control not passed" }
