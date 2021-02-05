@@ -71,10 +71,10 @@ class SensorsController < ApplicationController
     end
   end
 
+
   # DELETE /sensors/1
   # DELETE /sensors/1.json
   def destroy
-
     respond_to do |format|
       if  @sensor.user_id==current_user.id && @sensor.destroy
         format.html { redirect_to sensors_url, notice: 'Sensor was successfully destroyed.' }
@@ -91,6 +91,6 @@ class SensorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def sensor_params
-      params.require(:sensor).permit(:mac, :url, :tipo, :latitudine, :longitudine, :unit_misura, :public, :downtime_to_alarm, :last_firmware_update)
+      params.require(:sensor).permit(:mac, :url, :tipo, :latitudine, :longitudine, :unit_misura, :public, :downtime_to_alarm, :last_firmware_update, :image)
     end
 end
