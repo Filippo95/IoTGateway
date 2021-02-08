@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1 style="width: 500px; height: 30px; text-align: center;">Sensors Groups</h1>
+<h1 style="width: 500px; height: 30px; text-align: center;">Gruppi di sensori</h1>
 
  <% if @sensors_groups.blank? %>
    <!-- Stringa che dice di inserire almeno un gruppo  -->
@@ -28,12 +28,13 @@
         <% end %>
         </tbody>
     </table>
+  <div btn>
+    <p style="width: 200px; margin: 0 auto; margin-top: 15px;">
+    <%= link_to 'Aggiungi Gruppo di Sensori', new_sensors_group_path,class:"btn pure-button pure-button-primary"%></p>
+  </div>
   <%end %>
+ <br>
 
-<br>
-<div new>
-  <p style="width: 200px; margin: 0 auto"><%= link_to 'Aggiungi Gruppo di Sensori', new_sensors_group_path, class:"btn pure-button pure-button-primary"%></p>
-</div>
 <style scoped>
 
         .button-success,
@@ -69,4 +70,5 @@
           margin: 0 auto;
         }
 
+        
     </style>

@@ -17,10 +17,7 @@ class Sensor < ApplicationRecord
 
 	belongs_to :user
 
-
-
-
-
+	
 
 	def set_defaults
 		#default sensor are not public

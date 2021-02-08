@@ -260,7 +260,13 @@ Ciao, <%=current_user.email%>
         <td><%= sensor.user_id %></td>
         <td><%= sensor.public %></td>
         <td><%= sensor.downtime_to_alarm %></td>
-        <td><%= sensor.last_firmware_update %></td>
+        <td>
+          <% if sensor.image.attached?%>
+          <%= sensor.image.created_at.strftime("%Y-%m-%d %H:%M")%>
+          <% else%>
+          <%= sensor.last_firmware_update %>
+          <% end%>
+        </td> 
         </tr>
     <% end %>
   </tbody>
