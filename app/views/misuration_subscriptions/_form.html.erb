@@ -13,12 +13,12 @@
 
 
   <div class="field">
-    <%= form.label :sensor_id %>
+    <%= form.label :sensor_id , value: 'sensore'%>
     <%= form.collection_select :sensor_id, @availablesensors, :id, :name, include_blank: true %>
   </div>
 
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit:class => 'pure-button pure-button-primary' ,value: 'Crea iscrizione sensore'%>
   </div>
 <% end %>

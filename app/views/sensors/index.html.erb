@@ -13,7 +13,7 @@
       <th>Unità misura</th>
       <th>Publico</th>
       <th>Downtime to alarm</th>
-      <th>Last firmware update</th>
+      <th>Ultimo aggiornamento firmware</th>
       <th ></th><th ></th><th ></th><th></th>
     </tr>
   </thead>
@@ -39,7 +39,7 @@
         <td><%= link_to 'Visualizza', sensor , class: "button-success pure-button" %></td>
         <td><%= link_to 'Modifica', edit_sensor_path(sensor), class: "button-warning pure-button" %></td>
         <td><%= link_to 'Elimina', sensor, method: :delete, data: { confirm: 'Sei sicuro?' } , class: "button-error pure-button"%></td>
-        <td><%= link_to "Aggiorna firmware", aggiorna_firmware_path(id: sensor.id), class: "button-success pure-button" %></td>
+        <td><%= link_to "Aggiorna firmware", aggiorna_firmware_path(id: sensor.id), class: "button-secondary pure-button" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -67,7 +67,7 @@ $(document).ready( function () {
         <th>Latitudine</th>
         <th>Longitudine</th>
         <th>Unità misura</th>
-        <th>Owner</th>
+        <th>Proprietario</th>
         <th>Publico</th>
         <th>Downtime to alarm</th>
         <th>Last firmware update</th>
@@ -87,18 +87,13 @@ $(document).ready( function () {
           <td><%= sensor.user.email %></td>
           <td><%= sensor.public %></td>
           <td><%= sensor.downtime_to_alarm %></td>
+          <td>
           <% if sensor.image.attached?%>
-          <strong>
-            Ultimo aggiornamento firware: <%= sensor.image.created_at.strftime("%Y-%m-%d %H:%M")%>
-          </strong>
+            <%= sensor.image.created_at.strftime("%Y-%m-%d %H:%M")%>
           <% else%>
-          </p>
-          <p>
-          <strong>Last firmware update:</strong>
-          <%= sensor.last_firmware_update %>
-          </p>
+            <%= sensor.last_firmware_update %>
           <% end%>
-          <td><%= sensor.last_firmware_update %></td>
+        </td>
           <td><%= link_to 'Visualizza', sensor , class: "button-success pure-button" %></td>
         </tr>
       <% end %>

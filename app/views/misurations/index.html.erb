@@ -22,7 +22,6 @@
         <td><%= misuration.created_at.strftime("%d-%m-%Y") %></td>
         <td><%= misuration.created_at.strftime("%T")%></td>
         <td><%= link_to 'Visualizza', misuration, class: "button-success pure-button" %></td>
-        <td><%= link_to 'Modifica', edit_misuration_path(misuration), class: "button-warning pure-button" %></td>
         <td><%= link_to 'Elimina', misuration, method: :delete, data: { confirm: 'Sei sicuro?' } , class: "button-error pure-button"%></td>
       </tr>
     <% end %>
@@ -31,7 +30,6 @@
 
 <br>
 
-<%= link_to 'Aggiungi Misurazione', new_misuration_path ,class:"pure-button pure-button-primary"%>
 <h3>Le misurazioni di altri sensori </h3>
 <table class="pure-table pure-table-horizontal">
   <thead>

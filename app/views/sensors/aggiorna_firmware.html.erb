@@ -10,20 +10,23 @@
 
           <div class="card-body">
 
-            <h5 class="card-title", style="color: green"><%= @sensors.mac %></h5>
 
              <% if @sensors.image.attached?%>
-              Ultimo aggiornamento firware: <%= @sensors.image.created_at.strftime("%Y-%m-%d %H:%M")%>
+              <strong>Ultimo aggiornamento firware:</strong> <%= @sensors.image.created_at.strftime("%Y-%m-%d %H:%M")%>
+           
             <% else%>
-              Ultimo aggiornamento firware: <%= @sensors.last_firmware_update%>
+              <strong>Ultimo aggiornamento firware:</strong> <%= @sensors.last_firmware_update%>
+              
             <% end%>
-            
+            <br>
+            <br>
             
         <div class="form-group row">
           <div class="col-8">
             <%= form.file_field :image,  class: "form-control shadow rounded"%>
               <div id="bottone" class="form-group row justify-content-center">
-              <%= form.submit(@sensors.new_record? ?  "Crea sensore" : "Aggiorna firmware",  class: "btn btn-outline-primary") %>
+              <br>
+              <%= form.submit(@sensors.new_record? ?  "Crea sensore" : "Aggiorna firmware",  class: "button-secondary pure-button") %>
             </div>
         </div>
 
@@ -77,4 +80,7 @@
     </div>
   
   <% end %>
+  <br>
+  <%= link_to 'Indietro', sensors_path, class: "pure-button" %>
 </div>
+

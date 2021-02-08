@@ -46,14 +46,17 @@
 </p>
 <p>
 <% if @sensor.image.attached?%>
-  <strong>
-  Ultimo aggiornamento firware: <%= @sensor.image.created_at.strftime("%Y-%m-%d %H:%M")%>
-  </strong>
+
+  <strong>Ultimo aggiornamento firware:</strong> <%= @sensor.image.created_at.strftime("%Y-%m-%d %H:%M")%>
+
 <% else%>
 </p>
 <p>
-  <strong>Last firmware update:</strong>
+  <strong>Ultimo aggiornamento firware:</strong>
   <%= @sensor.last_firmware_update %>
 </p>
 <% end%>
+<p></p>
+<%= link_to 'Modifica', edit_sensor_path(@sensor), class: "pure-button" %>
+<%= link_to 'Indietro', sensors_path, class: "pure-button" %>
 

@@ -28,7 +28,7 @@ class SensorsGroupsController < ApplicationController
     @sensors_group.user_id=current_user.id
     respond_to do |format|
       if @sensors_group.save
-        format.html { redirect_to @sensors_group, notice: 'Sensors group was successfully created.' }
+        format.html { redirect_to @sensors_group, notice: 'Gruppo di sensori creato correttamente' }
         format.json { render :show, status: :created, location: @sensors_group }
       else
         format.html { render :new }

@@ -229,7 +229,7 @@ h3 {
 </body>
 </html>
 <%else%>
-Ciao, <%=current_user.email%>
+Benvenuto <%=current_user.email%>
 <h3> I miei sensori</h3>
 <table class="pure-table pure-table-horizontal">
   <thead>
@@ -240,7 +240,6 @@ Ciao, <%=current_user.email%>
       <th>Latitudine</th>
       <th>Longitudine</th>
       <th>Unità misura</th>
-      <th>Owner</th>
       <th>Publico</th>
       <th>Downtime to alarm</th>
       <th>Last firmware update</th>
@@ -257,7 +256,6 @@ Ciao, <%=current_user.email%>
         <td><%= sensor.latitudine %></td>
         <td><%= sensor.longitudine %></td>
         <td><%= sensor.unit_misura %></td>
-        <td><%= sensor.user_id %></td>
         <td><%= sensor.public %></td>
         <td><%= sensor.downtime_to_alarm %></td>
         <td>

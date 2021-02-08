@@ -12,16 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :sensors_group_id %>
+    <%= form.label :sensors_group_id, value: 'Gruppo di sensori' %>
     <%= form.collection_select :sensors_group_id, @sensor_groups, :id, :nome, include_blank: true %>
   </div>
 
   <div class="field">
-    <%= form.label :sensor_id %>
+    <%= form.label :sensor_id, value: 'Sensore'%>
     <%= form.collection_select :sensor_id, @sensors, :id, :name, include_blank: true %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :class => 'pure-button pure-button-primary' ,value: 'Crea iscrizione a gruppo di sensori'%>
   </div>
 <% end %>
