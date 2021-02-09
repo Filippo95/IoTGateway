@@ -4,7 +4,8 @@
 
  <% if @sensors_groups.blank? %>
    <!-- Stringa che dice di inserire almeno un gruppo  -->
-   <p style="text-align: center"> Devi inserire almeno un gruppo
+   <p> Devi inserire almeno un gruppo
+   <br>
    <%= link_to 'Aggiungi Gruppo di Sensori', new_sensors_group_path, class:"btn pure-button pure-button-primary"%>
    </p>
   <% else %>
