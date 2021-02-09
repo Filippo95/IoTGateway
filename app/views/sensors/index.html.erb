@@ -28,7 +28,7 @@
         <td><%= sensor.longitudine %></td>
         <td><%= sensor.unit_misura %></td>
         <td><%= sensor.public %></td>
-        <td><%= sensor.downtime_to_alarm %></td>
+        <td><%= sensor.downtime_to_alarm.strftime("%H:%M")  %></td>
         <td>
           <% if sensor.image.attached?%>
           <%= sensor.image.created_at.strftime("%Y-%m-%d %H:%M")%>
@@ -86,7 +86,7 @@ $(document).ready( function () {
           <td><%= sensor.unit_misura %></td>
           <td><%= sensor.user.email %></td>
           <td><%= sensor.public %></td>
-          <td><%= sensor.downtime_to_alarm %></td>
+          <td><%= sensor.downtime_to_alarm.strftime("%H:%M")  %></td>
           <td>
           <% if sensor.image.attached?%>
             <%= sensor.image.created_at.strftime("%Y-%m-%d %H:%M")%>

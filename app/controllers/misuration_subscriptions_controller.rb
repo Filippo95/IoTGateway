@@ -38,7 +38,7 @@ class MisurationSubscriptionsController < ApplicationController
   def edit
     if @misuration_subscription.user.id!=current_user.id
       respond_to do |format|
-        format.html { redirect_to @misuration_subscription, notice:'Non puoi modificare una subscription non tua, creane una nuova!'}
+        format.html { redirect_to @misuration_subscription, notice:'Non puoi modificare una iscrizione non tua, creane una nuova!'}
         format.json { render json: @misuration_subscription.errors, status: :unprocessable_entity }
       end
     end
@@ -56,7 +56,7 @@ class MisurationSubscriptionsController < ApplicationController
     @misuration_subscription.user_id=current_user.id
     respond_to do |format|
       if @misuration_subscription.save
-        format.html { redirect_to @misuration_subscription, notice: 'Misuration subscription was successfully created.' }
+        format.html { redirect_to @misuration_subscription, notice: 'Iscrizione al sensore creata correttamente' }
         format.json { render :show, status: :created, location: @misuration_subscription }
       else
         format.html { render :new }
@@ -70,10 +70,10 @@ class MisurationSubscriptionsController < ApplicationController
   def update
     respond_to do |format|
       if @misuration_subscription.user.id==current_user.id && @misuration_subscription.update(misuration_subscription_params)
-        format.html { redirect_to @misuration_subscription, notice: 'Misuration subscription was successfully updated.' }
+        format.html { redirect_to @misuration_subscription, notice: 'Iscrizione al sensore aggiornata correttamente' }
         format.json { render :show, status: :ok, location: @misuration_subscription }
       else
-        format.html {   flash[:notice] = 'Non puoi modificare una subscription non tua! '
+        format.html {   flash[:notice] = 'Non puoi modificare una iscrizione non tua! '
           render :edit }
         format.json { render json: @misuration_subscription.errors, status: :unprocessable_entity }
       end
@@ -85,7 +85,7 @@ class MisurationSubscriptionsController < ApplicationController
   def destroy
     @misuration_subscription.destroy
     respond_to do |format|
-      format.html { redirect_to misuration_subscriptions_url, notice: 'Misuration subscription was successfully destroyed.' }
+      format.html { redirect_to misuration_subscriptions_url, notice: 'Iscrizione al sensore eliminata correttamente' }
       format.json { head :no_content }
     end
   end

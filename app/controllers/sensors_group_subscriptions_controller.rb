@@ -44,7 +44,7 @@ class SensorsGroupSubscriptionsController < ApplicationController
 
     respond_to do |format|
       if @sensors_group_subscription.save
-        format.html { redirect_to @sensors_group_subscription, notice: 'Sensors group subscription was successfully created.' }
+        format.html { redirect_to @sensors_group_subscription, notice: 'Iscrizione al gruppo di sensori creata correttamente' }
         format.json { render :show, status: :created, location: @sensors_group_subscription }
       else
         format.html { render :new }
@@ -58,7 +58,7 @@ class SensorsGroupSubscriptionsController < ApplicationController
   def update
     respond_to do |format|
       if @sensors_group_subscription.update(sensors_group_subscription_params)
-        format.html { redirect_to @sensors_group_subscription, notice: 'Sensors group subscription was successfully updated.' }
+        format.html { redirect_to @sensors_group_subscription, notice: 'Iscrizione al gruppo di sensori aggiornata correttamente' }
         format.json { render :show, status: :ok, location: @sensors_group_subscription }
       else
         format.html { render :edit }
@@ -72,7 +72,7 @@ class SensorsGroupSubscriptionsController < ApplicationController
   def destroy
     @sensors_group_subscription.destroy
     respond_to do |format|
-      format.html { redirect_to sensors_group_subscriptions_url, notice: 'Sensors group subscription was successfully destroyed.' }
+      format.html { redirect_to sensors_group_subscriptions_url, notice: 'Iscrizione al gruppo di sensori cancellata correttamente' }
       format.json { head :no_content }
     end
   end

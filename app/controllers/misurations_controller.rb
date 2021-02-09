@@ -77,7 +77,7 @@ class MisurationsController < ApplicationController
   def destroy
     @misuration.destroy
     respond_to do |format|
-      format.html { redirect_to misurations_url, notice: 'Misuration was successfully destroyed.' }
+      format.html { redirect_to misurations_url, notice: 'Misurazione è stata cancellata correttamente' }
       format.json { head :no_content }
     end
   end

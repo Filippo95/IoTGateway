@@ -49,7 +49,7 @@ class SensorsController < ApplicationController
 
     respond_to do |format|
       if @sensor.save
-        format.html { redirect_to @sensor, notice: 'Sensor was successfully created.' }
+        format.html { redirect_to @sensor, notice: 'Sensore creato correttamente' }
         format.json { render :show, status: :created, location: @sensor }
       else
         format.html { render :new }
@@ -63,7 +63,7 @@ class SensorsController < ApplicationController
   def update
     respond_to do |format|
       if @sensor.update(sensor_params) && @sensor.user_id==current_user.id
-        format.html { redirect_to @sensor, notice: 'Sensor was successfully updated.' }
+        format.html { redirect_to @sensor, notice: 'Sensore aggiornato correttamente' }
         format.json { render :show, status: :ok, location: @sensor }
       else
         format.html {
@@ -80,7 +80,7 @@ class SensorsController < ApplicationController
   def destroy
     respond_to do |format|
       if  @sensor.user_id==current_user.id && @sensor.destroy
-        format.html { redirect_to sensors_url, notice: 'Sensor was successfully destroyed.' }
+        format.html { redirect_to sensors_url, notice: 'Sensore eliminato correttamente' }
         format.json { head :no_content }
       end
     end

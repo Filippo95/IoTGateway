@@ -42,7 +42,7 @@ class SensorsGroupsController < ApplicationController
   def update
     respond_to do |format|
       if @sensors_group.update(sensors_group_params)
-        format.html { redirect_to @sensors_group, notice: 'Sensors group was successfully updated.' }
+        format.html { redirect_to @sensors_group, notice: 'Gruppo di sensori aggiornato correttamente' }
         format.json { render :show, status: :ok, location: @sensors_group }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class SensorsGroupsController < ApplicationController
   def destroy
     @sensors_group.destroy
     respond_to do |format|
-      format.html { redirect_to sensors_groups_url, notice: 'Sensors group was successfully destroyed.' }
+      format.html { redirect_to sensors_groups_url, notice: 'Gruppo di sensori cancellato correttamente' }
       format.json { head :no_content }
     end
   end

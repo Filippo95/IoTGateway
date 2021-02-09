@@ -42,7 +42,7 @@
 
 <p>
   <strong>Downtime to alarm:</strong>
-  <%= @sensor.downtime_to_alarm %>
+  <%= @sensor.downtime_to_alarm.strftime("%H:%M")  %>
 </p>
 <p>
 <% if @sensor.image.attached?%>
